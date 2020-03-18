@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MVVM双向绑定</title>
+
+</head>
+
+<body>
+  <div id="app">
+    <p>{{a}}</p>
+    <p>{{b.c}}</p>
+  </div>
+
+  <script src="./02 数据监听器Observer  实现数据劫持.js"></script>
+  <script>
+    let myVue = new MyVue({
+      el: "#app",
+      data: {
+        a: 1,
+        b: {
+          c: 2
+        }
+      }
+    });
+  </script>
+
+</body>
+
+</html>

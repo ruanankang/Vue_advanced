@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object.defineProperty</title>
+  <style>
+    * {
+      font-family: '苹方';
+    }
+  </style>
+</head>
+
+<body>
+  <div id="vue-app">
+    <h1>MVVM</h1>
+    <p>MVVM 双向数据绑定 angular采用脏值检测 vue采用数据劫持+发布者订阅者模式</p>
+    <p>vue2.0 采用不兼容低版本IE8的es5语法 Object.defineProperty()</p>
+  </div>
+
+  <script>
+    let obj = {
+      name: 'alice',
+      age: 17
+    }
+    let sex = 'boy';
+    Object.defineProperty(obj, 'gender', {
+      enumerable: true, // gender属性是否可以枚举，for in 和 Object.keys()
+      configurable: true, // gender属性是否可以被删除，以及除writable、value之外的其他描述符是否可被修改
+      // value: 'boy', // gender属性值
+      // writable: true, // gender属性是否可以赋值
+      // value/writable 和 get/set 不能共存
+      get() {
+        return sex;
+      },
+      set(newValue) {
+        sex = newValue;
+      }
+    })
+  </script>
+</body>
+
+</html>
