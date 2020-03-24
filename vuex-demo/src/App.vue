@@ -1,19 +1,24 @@
 <template>
-  <div>
-    <h1>Hello world</h1>
-    <my-addition></my-addition>
-    <my-subtraction></my-subtraction>
+  <div id="app">
+    <a-menu v-model="current" mode="horizontal">
+      <a-menu-item key="mail">
+        <a-icon type="mail" />
+        <router-link to="/" style="float: right">Home</router-link>
+      </a-menu-item>
+      <a-menu-item key="app">
+        <a-icon type="appstore" />
+        <router-link to="/todos" style="float: right">Todos</router-link>
+      </a-menu-item>
+    </a-menu>
+    <router-view></router-view>
   </div>
 </template>
-
 <script>
-import Addition from "./components/addition.vue";
-import Subtraction from "./components/subtraction.vue";
-
 export default {
-  components: {
-    "my-addition": Addition,
-    "my-subtraction": Subtraction
+  data() {
+    return {
+      current: ["mail"]
+    };
   }
 };
 </script>
